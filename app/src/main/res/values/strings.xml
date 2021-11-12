@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bank Test</string>
+    <string name="first_of_the_few">First of the few steps to set you up with a Bank Account</string>
+    <string name="pan_number">PAN NUMBER</string>
+    <string name="birthdate">BIRTHDATE</string>
+    <string name="next">next</string>
+    <string name="providing_pan_date...">Providing PAN  Date of Birth helps us find and fetch your KYC from a central registry by the Government of India. Learn more</string>
+    <string name="i_dont_have_pan">I don\'t have a PAN</string>
+    <string name="details_submitted">Details submitted successfully</string>
+</resources>

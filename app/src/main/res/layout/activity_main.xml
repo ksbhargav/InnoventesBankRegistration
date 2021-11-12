@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data class="MainDataBinding">
+        <variable
+            name="viewModel"
+            type="com.a.banktest.ui.MainViewModel" />
+    </data>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:background="@color/white"
+        tools:context=".ui.MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="700dp"
+            android:padding="@dimen/dimen_16">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5"
+                android:text="s."
+                android:textColor="@color/headerColor"
+                android:textSize="@dimen/text_size_50"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/firsttext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:text="@string/first_of_the_few"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_20"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/pan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?actionBarSize"
+                android:text="@string/pan_number"
+                android:textColor="@color/labelColor"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firsttext" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/panEditText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="10dp"
+                android:maxLength="10"
+                android:text="@={viewModel.panNumber}"
+                android:textColor="@color/black"
+                android:inputType="textCapCharacters"
+                android:singleLine="true"
+                android:background="@drawable/edittextbgline"
+                android:padding="@dimen/dimen_10"
+                app:layout_constraintTop_toBottomOf="@+id/pan" ><requestFocus/>
+            </androidx.appcompat.widget.AppCompatEditText>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/birth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:text="@string/birthdate"
+                android:textSize="@dimen/text_size_12"
+                android:textColor="@color/labelColor"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/panEditText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/daydate"
+                android:layout_width="@dimen/editext_width"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="10dp"
+                android:text="@={viewModel.day}"
+                android:background="@drawable/date_edit_text_focused_background"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_16"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="DD"
+                android:maxLength="2"
+                tools:text="05"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birth" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/month"
+                android:layout_width="@dimen/editext_width"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/date_edit_text_focused_background"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_16"
+                android:text="@={viewModel.month}"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:maxLength="2"
+                android:hint="MM"
+                tools:text="05"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/dimen_16"
+                app:layout_constraintStart_toEndOf="@+id/daydate"
+                app:layout_constraintTop_toBottomOf="@+id/birth" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/year"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/date_edit_text_focused_background"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_16"
+                android:text="@={viewModel.year}"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:maxLength="4"
+                android:hint="YYYY"
+                tools:text="0590"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/dimen_16"
+                app:layout_constraintStart_toEndOf="@+id/month"
+                app:layout_constraintTop_toBottomOf="@+id/birth"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/paragraph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="@string/providing_pan_date..."
+                android:textColor="@color/labelColorLight"
+                android:layout_marginBottom="@dimen/dimen_16"
+                app:layout_constraintBottom_toTopOf="@id/nextbtn" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/nextbtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="15dp"
+                android:text="@string/next"
+                android:textAllCaps="true"
+                android:enabled="@{viewModel.isValidPan() &amp;&amp; viewModel.isValidDay() &amp;&amp; viewModel.isValidMonth() &amp;&amp; viewModel.isValidYear() &amp;&amp; viewModel.isValidDate()}"
+                android:textColor="@color/white"
+                android:background="@drawable/next_btn_background"
+                app:layout_constraintBottom_toTopOf="@id/dontpanTxt"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dontpanTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_10"
+                android:gravity="center"
+                android:textColor="@color/labelColor"
+                android:text="@string/i_dont_have_pan"
+                android:layout_marginBottom="@dimen/dimen_25"
+                android:background="?selectableItemBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+    
+</layout>
